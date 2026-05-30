@@ -379,15 +379,14 @@ def medicine():
 
         return jsonify(final_result)
 
-    except Exception as e:
+  except Exception as e:
+    import traceback
 
-        return jsonify({
-
-            "status": False,
-
-            "message": str(e)
-        })
-
+    return jsonify({
+        "status": False,
+        "message": str(e),
+        "trace": traceback.format_exc()
+    }), 500
     finally:
 
         driver.quit()
