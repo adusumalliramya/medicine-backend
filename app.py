@@ -375,24 +375,27 @@ def medicine():
                 "Medicine URL": medicine_url
             }
 
-            final_result.append(medicine_data)
+                     final_result.append(medicine_data)
 
-                return jsonify(final_result)
+        return jsonify(final_result)
 
     except Exception as e:
-        import traceback
 
         return jsonify({
             "status": False,
-            "message": str(e),
-            "trace": traceback.format_exc()
+            "message": str(e)
         }), 500
 
     finally:
-       driver.quit()
+
+        driver.quit()
+
+
 # ==========================================
 # RUN APP
 # ==========================================
-if __name__ == '__main__':
+import os
 
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
