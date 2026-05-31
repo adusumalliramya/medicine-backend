@@ -377,20 +377,19 @@ def medicine():
 
             final_result.append(medicine_data)
 
-        return jsonify(final_result)
+                return jsonify(final_result)
 
-  except Exception as e:
-    import traceback
+    except Exception as e:
+        import traceback
 
-    return jsonify({
-        "status": False,
-        "message": str(e),
-        "trace": traceback.format_exc()
-    }), 500
+        return jsonify({
+            "status": False,
+            "message": str(e),
+            "trace": traceback.format_exc()
+        }), 500
+
     finally:
-
         driver.quit()
-
 # ==========================================
 # RUN APP
 # ==========================================
