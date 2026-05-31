@@ -388,8 +388,8 @@ def medicine():
             "trace": traceback.format_exc()
         }), 500
 
-   # finally:
-      #  driver.quit()
+    finally:
+       driver.quit()
 # ==========================================
 # RUN APP
 # ==========================================
